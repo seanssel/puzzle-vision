@@ -1,0 +1,75 @@
+.main {
+  display: flex;
+  flex-flow: column;
+  font-size: 0.85rem;
+}
+
+.move {
+  flex-basis: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  /* animation: fade-in 100ms linear;
+  animation-delay: 1ms; */
+}
+
+.info {
+  font-size: 0.8rem;
+  animation: fade-in 100ms linear;
+}
+
+.startSquare {
+  margin: 0.4em;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.endSquare {
+  width: 3em;
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid var(--text-secondary);
+  color: var(--text-primary);
+  border-radius: 4px;
+}
+
+.submit {
+  composes: button from './Button.module.css';
+  margin: 2em;
+  font-size: 0.7em;
+}
+
+.error {
+  animation: shake 0.2s ease-in-out 0s 2;
+  box-shadow: 0 0 0.4em #fd2a2a;
+}
+
+@keyframes shake {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.5rem;
+  }
+  75% {
+    margin-left: -0.5rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,52 @@
+.menu {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--bg-secondary);
+  color: var(--nav-primary);
+  box-shadow: var(--shadow-hi);
+  position: fixed;
+  z-index: 10;
+}
+
+.item {
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+  font-size: 1.6rem;
+}
+
+.name {
+  letter-spacing: -0.025em;
+  font-weight: 300;
+}
+
+.subname {
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  font-size: 0.75em;
+}
+
+.icon {
+  height: 0.8em;
+  margin-top: 0.1em;
+  margin-left: 1rem;
+  stroke: var(--nav-secondary);
+  cursor: pointer;
+}
+
+.icon:hover,
+.settings.open,
+.help.open {
+  stroke: var(--nav-primary);
+  filter: drop-shadow(1px 2px 1.2px rgba(0, 0, 0, 0.4));
+}
+
+@media screen and (max-width: 600px) {
+  .menu {
+    justify-content: space-between;
+  }
+
+  .item {
+    padding: 0 0.5rem;
+  }
+}

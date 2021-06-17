@@ -1,0 +1,47 @@
+.squares {
+  font-size: 0.8rem;
+  flex-basis: 60%;
+  padding: 0;
+}
+
+.square {
+  list-style: none;
+  display: inline-block;
+  padding: 0.1rem;
+  margin: 0.1rem;
+  border-radius: 4px;
+  animation: pop 200ms linear;
+}
+
+.square:hover {
+  cursor: pointer;
+  background-color: var(--highlight-square);
+  color: var(--bg-primary);
+}
+
+.square:active {
+  transform: scale(1.2);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@keyframes pop {
+  0% {
+    background-color: var(--highlight-square);
+    transform: scale(1.4);
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .squares {
+    flex-basis: 20%;
+  }
+}

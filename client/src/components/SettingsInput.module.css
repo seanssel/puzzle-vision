@@ -1,0 +1,43 @@
+.main {
+  display: flex;
+}
+
+.label {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.85rem;
+  padding: 0.2rem;
+}
+
+.input:focus {
+  background-color: #f0f0f015;
+}
+
+.input[type='checkbox'] {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 15%;
+  cursor: pointer;
+}
+
+.input[type='number'] {
+  -moz-appearance: textfield;
+  width: 3rem;
+  height: 1.2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: transparent;
+  color: var(--nav-primary);
+  border: none;
+  border-bottom: 1px solid var(--nav-secondary);
+  margin-bottom: 0.8rem;
+}
+
+.input[type='number']::-webkit-inner-spin-button,
+.input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

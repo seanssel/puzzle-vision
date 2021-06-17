@@ -1,0 +1,21 @@
+.info {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.2rem;
+  margin: 0.2rem;
+}
+
+.mates {
+  flex-basis: 100%;
+  padding: 0;
+}
+
+.submit {
+  composes: button from './Button.module.css';
+  background-color: var(--button-filter);
+  margin-top: 1rem;
+}
+
+.submit:hover {
+  background-color: var(--button-filter-hover);
+}

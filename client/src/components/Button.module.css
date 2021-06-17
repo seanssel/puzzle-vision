@@ -1,0 +1,21 @@
+.button {
+  margin: 0.2rem;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--button-primary);
+  color: var(--nav-primary);
+  font-weight: 700;
+  font-size: 0.7rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-hi);
+}
+
+.button:hover {
+  background-color: var(--button-hover);
+  box-shadow: var(--shadow-lo);
+}
+
+.button:active {
+  opacity: 0.6;
+}

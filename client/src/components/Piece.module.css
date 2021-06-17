@@ -1,0 +1,31 @@
+.piece {
+  display: flex;
+  align-items: center;
+  animation: fade 300ms linear;
+}
+
+.icon {
+  flex-basis: 30%;
+  height: 3.2rem;
+  margin: 0.2rem;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes fade {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* TODO  two pieces per row */
+
+  .icon{
+    flex-basis: 15%;
+  }
+}

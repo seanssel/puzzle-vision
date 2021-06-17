@@ -1,0 +1,46 @@
+.main {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  animation: fade 200ms linear;
+}
+
+.error {
+  margin-top: 20vh;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  margin-top: 20vh;
+  border-radius: 90%;
+  display: inline-block;
+  border-top: 2px solid var(--text-primary);
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}

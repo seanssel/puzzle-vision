@@ -1,0 +1,97 @@
+:root {
+  --bg-primary: #394247;
+  --bg-secondary: #52626b;
+  --text-primary: #f0f0f0;
+  --text-secondary: #f0f0f0ab;
+  --button-primary: #52626ba2;
+  --button-hover: #52626b;
+  --button-filter: #394850c5;
+  --button-filter-hover: #313e44cb;
+  --nav-primary: #f0f0f0;
+  --nav-secondary: #f0f0f0ab;
+  --link-primary: #85a7b8;
+  --link-secondary: #85a7b8aa;
+  --highlight-square: #d5dbdfbf;
+  --solved-icon: rgb(80, 184, 88);
+  --shadow-hi: 0 3px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lo: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  --shadow-tooltip: 0 3px 6px 3px rgba(0, 0, 0, 0.04),
+    0 2px 3px 2px rgba(0, 0, 0, 0.06);
+}
+
+.hidden {
+  display: none;
+}
+
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: clamp(0.75rem, 2vw, 1.25rem);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-primary);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 0.9rem;
+  margin: 0;
+  margin-bottom: 0.3rem;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('./assets/fonts/inter-v3-latin-regular.woff2') format('woff2'),
+    url('./assets/fonts/inter-v3-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''), url('./assets/fonts/inter-v3-latin-700.woff2') format('woff2'),
+    url('./assets/fonts/inter-v3-latin-700.woff') format('woff');
+}
+
+/* TODO: Looks terrible, need to adjust */
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    --bg-primary: #a9aeb5;
+    --bg-secondary: #31434c;
+    --text-primary: #3b3d3d;
+    --text-secondary: #454847dc;
+    --button-primary: #3a4951ea;
+    --button-hover: #586368;
+    --button-filter: #495b64b0;
+    --button-filter-hover: #4d595f;
+    --nav-primary: #f0f0f0;
+    --nav-secondary: #f0f0f0ab;
+    --link-primary: #658493;
+    --link-secondary: #659380aa;
+    --highlight-square: #31434c;
+    --solved-icon: rgb(80, 184, 88);
+    --square-last: #87e445cb;
+    --shadow-hi: 0 3px 4px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.35);
+    --shadow-lo: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+} */
