@@ -32,7 +32,7 @@ const SettingsModal = ({ updateConfig, modalRef, setModalVisible }) => {
 
   return (
     <MenuModal modalRef={modalRef}>
-      <form className={styles.modal} onSubmit={handleSubmit}>
+      <form className={styles.settings} onSubmit={handleSubmit}>
         <h1>Total Pieces:</h1>
         <SettingsInput
           type="number"

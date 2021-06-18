@@ -95,7 +95,7 @@
   list-style: none;
   display: flex;
   flex-flow: column;
-  padding-left: 2rem;
+  padding-left: 3rem;
 }
 
 .solution {

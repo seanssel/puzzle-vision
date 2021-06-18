@@ -16,8 +16,17 @@
 }
 
 .info {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   animation: fade-in 100ms linear;
+  font-weight: 700;
+}
+
+.help {
+  font-size: 0.6rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 0.9;
+  margin-top: 0.2rem;
 }
 
 .startSquare {

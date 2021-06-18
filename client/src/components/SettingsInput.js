@@ -14,6 +14,7 @@ const SettingsInput = ({ type, name, value, onChange, limit, children }) => {
           onChange={onChange}
           min={limit && limit.min}
           max={limit && limit.max}
+          required={type !== 'checkbox'}
         />
       </label>
     </div>

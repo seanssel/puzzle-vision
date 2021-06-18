@@ -1,8 +1,6 @@
 import styles from './SquareInput.module.css';
 
 const SquareInput = ({ square, makeMove, inputRef, error }) => {
-  // const [helpVisible, setHelpVisible] = useState(false);
-
   const handleMove = (e) => {
     e.preventDefault();
     makeMove(inputRef.current.value);
@@ -24,7 +22,12 @@ const SquareInput = ({ square, makeMove, inputRef, error }) => {
           <input className={styles.submit} type="submit" value="Submit Move" />
         </form>
       ) : (
-        <div className={styles.info}>Click a square to move</div>
+        <div className={styles.info}>
+          Click a square to move
+          <div className={styles.help}>
+            See the help icon at the top of the screen for instructions
+          </div>
+        </div>
       )}
     </div>
   );
