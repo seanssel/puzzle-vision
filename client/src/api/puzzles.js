@@ -20,9 +20,15 @@ const queryFormat = {
 };
 
 export const fetchPuzzles = (config, limit) => {
+  // DB stores number of total moves in puzzle, not counting first move.
+  // We want to limit according to player moves.
+  const movesRange = {
+    min: 2 * config.movesRange.min - 1,
+    max: 2 * config.movesRange.max - 1,
+  };
   const filters = {
     [API_QUERY_PIECES_RANGE]: Object.values(config.piecesRange),
-    [API_QUERY_MOVES_RANGE]: Object.values(config.movesRange),
+    [API_QUERY_MOVES_RANGE]: Object.values(movesRange),
   };
 
   if (config.matesOnly) {
