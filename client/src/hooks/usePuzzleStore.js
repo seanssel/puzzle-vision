@@ -5,6 +5,8 @@ import store from '../shared/storage/store';
 
 export const usePuzzleStore = (config, setError, setLoading) => {
   const [puzzle, setPuzzle] = useState(store.getActivePuzzle());
+  const [numPuzzlesFound, setNumPuzzlesFound] = useState(store.getNumPuzzles());
+  // const unmounted = useRef(false);
 
   const updatePuzzleStore = useCallback(
     (getNew) => {
@@ -25,6 +27,8 @@ export const usePuzzleStore = (config, setError, setLoading) => {
         fetchPuzzles(config, PUZZLE_LIMIT)
           .then((res) => {
             puzzles = res.data.results;
+            store.saveNumPuzzles(res.data.count);
+            setNumPuzzlesFound(res.data.count);
             if (puzzles && puzzles.length) {
               active = puzzles.pop();
               store.saveActivePuzzle(active);
@@ -49,7 +53,13 @@ export const usePuzzleStore = (config, setError, setLoading) => {
 
   useEffect(() => {
     updatePuzzleStore(false);
+    // if (!unmounted.current) {
+    //   updatePuzzleStore(false);
+    // }
+    // return () => {
+    //   unmounted.current = true;
+    // };
   }, [updatePuzzleStore]);
 
-  return [puzzle, getNextPuzzle];
+  return [puzzle, getNextPuzzle, numPuzzlesFound];
 };

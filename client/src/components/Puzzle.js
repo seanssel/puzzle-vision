@@ -151,7 +151,6 @@ const Puzzle = React.memo(
       setFromSquare(square);
       if (moveInput.current) {
         moveInput.current.focus();
-        console.log(moveInput.current.activeElement);
       }
     };
 
@@ -184,7 +183,7 @@ const Puzzle = React.memo(
           </Button>
         </div>
         <div className={styles.main}>
-          <ul className={styles.group}>
+          <ul className={`${styles.group} ${styles.white}`}>
             <PieceGroup
               board={position.board}
               squares={position.board.white}
@@ -224,7 +223,7 @@ const Puzzle = React.memo(
               )}
             </div>
           )}
-          <ul className={styles.group}>
+          <ul className={`${styles.group} ${styles.black}`}>
             <PieceGroup
               board={position.board}
               squares={position.board.black}

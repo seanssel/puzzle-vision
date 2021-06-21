@@ -5,7 +5,7 @@ import SettingsModal from './SettingsModal';
 import HelpModal from './HelpModal';
 import styles from './Menu.module.css';
 
-const Menu = ({ updateConfig }) => {
+const Menu = ({ updateConfig, numPuzzlesFound }) => {
   const [
     settingsRef,
     isSettingsVisible,
@@ -20,6 +20,9 @@ const Menu = ({ updateConfig }) => {
         puzzle<span className={styles.subname}>VISION</span>
       </div>
       <div className={styles.settings}>
+        {numPuzzlesFound !== 0 && (
+          <span className={styles.numPuzzlesFound}>{numPuzzlesFound}</span>
+        )}
         <SettingsIcon
           onClick={() => setIsSettingsVisible(!isSettingsVisible)}
           className={`${styles.icon} ${styles.item} ${styles.settings} ${

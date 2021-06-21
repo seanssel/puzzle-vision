@@ -7,6 +7,7 @@
   color: var(--nav-primary);
   box-shadow: var(--shadow-hi);
   position: fixed;
+  padding-bottom: 0.3rem;
   z-index: 10;
 }
 
@@ -39,6 +40,19 @@
 .help.open {
   stroke: var(--nav-primary);
   filter: drop-shadow(1px 2px 1.2px rgba(0, 0, 0, 0.4));
+}
+
+.settings {
+  margin-top: 0.3rem;
+}
+
+.numPuzzlesFound {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  bottom: 0.4rem;
+  left: 0.9rem;
+  font-size: 0.6rem;
 }
 
 @media screen and (max-width: 600px) {

@@ -12,7 +12,11 @@ function App() {
   const [config, updateConfig] = usePuzzleConfig();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const [puzzle, getNextPuzzle] = usePuzzleStore(config, setError, setLoading);
+  const [puzzle, getNextPuzzle, numPuzzlesFound] = usePuzzleStore(
+    config,
+    setError,
+    setLoading,
+  );
   let puzzleMain;
 
   if (puzzle) {
@@ -53,7 +57,7 @@ function App() {
   return (
     <>
       <header className={styles.header}>
-        <Menu updateConfig={updateConfig} />
+        <Menu updateConfig={updateConfig} numPuzzlesFound={numPuzzlesFound} />
       </header>
       <div className={styles.main}>{puzzleMain}</div>
     </>

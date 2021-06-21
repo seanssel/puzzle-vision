@@ -3,7 +3,7 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .loader {
@@ -32,7 +32,6 @@
   font-weight: 700;
   text-transform: capitalize;
   font-variant: small-caps;
-  text-decoration: underline;
 }
 
 .moves {
@@ -86,6 +85,7 @@
 .main {
   display: flex;
   align-items: center;
+  width: 100%;
   /* min-height: 20rem; */
 }
 
@@ -109,6 +109,7 @@
 .board {
   height: 100%;
   width: 100%;
+  margin-top: 2rem;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -209,7 +210,7 @@
 
 @media screen and (max-width: 600px) {
   .puzzle {
-    margin-top: 0;
+    margin-top: 2rem;
   }
 
   .main {
