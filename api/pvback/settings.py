@@ -7,27 +7,26 @@ env = environ.Env(
 )
 
 # Read .env file
-environ.Env.read_env()
+env.read_env()
 
 # False if not in os.environ
-# DEBUG = True
-DEBUG = env('DEBUG')
+DEBUG = env('DJANGO_DEBUG')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-jsz#5a=w*^taji6x+gza(8a_bx!ysq_xd7e(j0c_l@foh(1(z)'
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(' ')
+# List of host/domain names that this Django site can serve
+# https://docs.djangoproject.com/en/3.2/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = env('DJANGO_ALLOWED_HOSTS').split(' ')
 
-CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ORIGIN_WHITELIST = env('CORS_ORIGIN_WHITELIST').split(' ')
+# Lost of origins that are authorized to make cross-site http requests
+# https://github.com/adamchainz/django-cors-headers#cors_allowed_origins
+CORS_ALLOWED_ORIGINS= env('DJANGO_CORS_ALLOWED_ORIGINS').split(' ')
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -79,22 +78,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pvback.wsgi.application'
 
 DATABASES = {
-    # read os.environ['DATABASE_URL']
-    'default': env.db(),
-    #  'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'db-name',
-    #     'USER': 'username',
-    #     'PASSWORD': 'password',
-    #     'HOST': 'localhost',
-    #     'PORT': 5432,
-    # }
+    'default': env.db('DJANGO_DATABASE_URL')
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -110,10 +98,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -124,13 +110,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

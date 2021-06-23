@@ -34,6 +34,29 @@
   font-variant: small-caps;
 }
 
+.moveButtons {
+  min-width: 18rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.moveButton {
+  composes: button from './Button.module.css';
+  background-color: transparent;
+  box-shadow: none;
+  flex-basis: 20%;
+  height: 1.5rem;
+  padding: 0.15rem;
+  margin: 0.5rem 0;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* min-height: 20rem; */
+}
+
 .moves {
   max-width: 22rem;
   margin-top: 2rem;
@@ -82,13 +105,6 @@
   stroke: var(--solved-icon);
 }
 
-.main {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  /* min-height: 20rem; */
-}
-
 .group {
   min-width: 10rem;
   max-width: 10rem;
@@ -109,7 +125,7 @@
 .board {
   height: 100%;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -132,22 +148,6 @@
   text-align: center;
   margin-top: 0.7rem;
   animation: fade-in 120ms linear;
-}
-
-.moveButtons {
-  min-width: 18rem;
-  display: flex;
-  justify-content: space-around;
-}
-
-.moveButton {
-  composes: button from './Button.module.css';
-  background-color: transparent;
-  box-shadow: none;
-  flex-basis: 20%;
-  height: 1.5rem;
-  padding: 0.15rem;
-  margin: 1rem 0;
 }
 
 .moveIcon {
