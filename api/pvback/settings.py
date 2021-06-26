@@ -1,5 +1,6 @@
 from pathlib import Path
 import environ
+import os
 
 env = environ.Env(
     #set casting, default value
@@ -10,7 +11,7 @@ env = environ.Env(
 env.read_env()
 
 # False if not in os.environ
-DEBUG = env('DJANGO_DEBUG')
+DEBUG = False
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -113,6 +114,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
