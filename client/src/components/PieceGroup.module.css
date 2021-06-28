@@ -1,6 +1,5 @@
 .squares {
-  font-size: 0.8rem;
-  flex-basis: 60%;
+  flex-basis: 70%;
   padding: 0;
 }
 
@@ -41,7 +40,9 @@
 }
 
 @media screen and (max-width: 600px) {
-  .squares {
-    flex-basis: 20%;
+  .square {
+    font-size: 1.2rem;
+    padding: 0.2rem;
+    margin: 0.2rem;
   }
 }

@@ -24,3 +24,9 @@
 .submit:hover {
   background-color: var(--button-filter-hover);
 }
+
+/* @media screen and (max-width: 600px) {
+  .settings {
+    flex-flow: row wrap;
+  }
+} */

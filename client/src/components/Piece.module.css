@@ -23,9 +23,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  /* TODO  two pieces per row */
-
-  .icon{
-    flex-basis: 15%;
+  .piece {
+    justify-content: flex-start;
   }
 }

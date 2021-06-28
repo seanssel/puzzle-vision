@@ -38,6 +38,8 @@ const Puzzle = React.memo(
       : solution[currMoveIndex].fenEnd;
 
     const position = getFenPosition(fenEnd);
+    const biasWhiteStyle =
+      position.board.pieces('white', 'pawn').size() > 3 ? styles.biasWhite : '';
 
     useEffect(() => {
       const handleArrowKeys = (e) => {
@@ -182,8 +184,8 @@ const Puzzle = React.memo(
             <IconNext className={styles.moveIcon} />
           </Button>
         </div>
-        <div className={styles.main}>
-          <ul className={`${styles.group} ${styles.white}`}>
+        <div className={`${styles.main} ${biasWhiteStyle}`}>
+          <ul className={`${styles.group} ${styles.white} ${biasWhiteStyle}`}>
             <PieceGroup
               board={position.board}
               squares={position.board.white}

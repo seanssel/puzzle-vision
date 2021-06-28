@@ -15,6 +15,7 @@ const SettingsInput = ({ type, name, value, onChange, limit, children }) => {
           min={limit && limit.min}
           max={limit && limit.max}
           required={type !== 'checkbox'}
+          onFocus={(e) => e.currentTarget.select()}
         />
       </label>
     </div>

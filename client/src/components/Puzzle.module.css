@@ -24,7 +24,7 @@
 
 .info {
   font-size: 0.9rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .turn {
@@ -47,7 +47,8 @@
   flex-basis: 20%;
   height: 1.5rem;
   padding: 0.15rem;
-  margin: 0.5rem 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
 }
 
 .main {
@@ -57,9 +58,13 @@
   /* min-height: 20rem; */
 }
 
+.main.biasWhite {
+  margin-right: 2rem;
+}
+
 .moves {
   max-width: 22rem;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   padding: 0;
 }
 
@@ -111,7 +116,10 @@
   list-style: none;
   display: flex;
   flex-flow: column;
-  padding-left: 3rem;
+}
+
+.white.biasWhite {
+  margin-right: 2rem;
 }
 
 .solution {
@@ -218,9 +226,23 @@
     justify-content: center;
   }
 
+  .white.biasWhite {
+    margin: 0;
+  }
+
+  .main.biasWhite {
+    margin: 0;
+  }
+
   .group {
-    flex-flow: row wrap;
-    min-width: 0;
+    flex-flow: column wrap;
+    max-width: 100%;
+  }
+
+  .white,
+  .black {
+    margin: 0;
+    justify-content: center;
   }
 
   .instructions {

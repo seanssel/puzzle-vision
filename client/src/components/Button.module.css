@@ -11,11 +11,13 @@
   box-shadow: var(--shadow-hi);
 }
 
-.button:hover {
-  background-color: var(--button-hover);
-  box-shadow: var(--shadow-lo);
-}
-
 .button:active {
   opacity: 0.6;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    background-color: var(--button-hover);
+    box-shadow: var(--shadow-lo);
+  }
 }
