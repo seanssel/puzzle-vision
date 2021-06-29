@@ -1,7 +1,6 @@
 import React from 'react';
 import { ROLES } from 'chessops/types';
 import { makeSquare } from 'chessops/util';
-import { hashBoard } from 'chessops/hash';
 import Piece from './Piece';
 import styles from './PieceGroup.module.css';
 
@@ -21,9 +20,9 @@ const groupPieces = (board, squares) => {
   return group;
 };
 
-// We don't want to regroup pieces on rerenders if the board hasn't changed
+// Only regroup on re-render if squares have changed
 const compareBoard = (prev, next) => {
-  return hashBoard(prev.board) === hashBoard(next.board);
+  return prev.squares.equals(next.squares);
 };
 
 const PieceGroup = React.memo(({ board, squares, selectSquare }) => {
