@@ -71,11 +71,11 @@ h1 {
     url('./assets/fonts/inter-v3-latin-700.woff') format('woff');
 }
 
-/* @media screen and (max-width: 1280px) {
+@media screen and (max-width: 600px) {
   html {
-    font-size: 1rem;
+    font-size: calc(1rem + 1vw);
   }
-} */
+}
 
 /* TODO: Looks terrible, need to adjust */
 

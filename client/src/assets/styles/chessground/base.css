@@ -168,3 +168,14 @@ piece.fading {
 .cg-wrap coords.ranks coord {
   transform: translateY(39%);
 }
+
+@media screen and (max-width: 600px) {
+  .cg-wrap {
+    width: 16rem;
+    height: 16rem;
+  }
+
+  .cg-wrap coords {
+    font-size: 0.46rem;
+  }
+}

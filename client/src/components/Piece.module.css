@@ -23,7 +23,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .piece {
-    justify-content: flex-start;
+  .icon {
+    width: 4rem;
   }
 }

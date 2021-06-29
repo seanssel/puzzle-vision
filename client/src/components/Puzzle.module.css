@@ -55,7 +55,6 @@
   display: flex;
   align-items: center;
   width: 100%;
-  /* min-height: 20rem; */
 }
 
 .main.biasWhite {
@@ -218,12 +217,23 @@
 
 @media screen and (max-width: 600px) {
   .puzzle {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
+    width: 100%;
   }
 
   .main {
     flex-flow: row wrap;
     justify-content: center;
+  }
+
+  .moveButtons {
+    order: 1;
+    margin-top: 0.4rem;
+  }
+
+  .moves {
+    order: 2;
+    max-width: 90%;
   }
 
   .white.biasWhite {
@@ -235,14 +245,12 @@
   }
 
   .group {
-    flex-flow: column wrap;
-    max-width: 100%;
+    flex-flow: row wrap;
+    margin: 0;
   }
 
-  .white,
-  .black {
-    margin: 0;
-    justify-content: center;
+  .info {
+    margin: 1rem;
   }
 
   .instructions {
@@ -259,5 +267,11 @@
     order: -1;
     flex-basis: 100%;
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 275px) {
+  .puzzle {
+    margin-top: 3rem;
   }
 }

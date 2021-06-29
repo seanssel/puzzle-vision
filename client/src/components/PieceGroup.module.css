@@ -45,4 +45,11 @@
     padding: 0.2rem;
     margin: 0.2rem;
   }
+
+  .squares {
+    width: 5rem;
+    display: inline-block;
+    flex-wrap: wrap;
+    border-bottom: 1px dotted var(--bg-secondary);
+  }
 }
