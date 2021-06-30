@@ -67,12 +67,7 @@
 
   .icon {
     height: 1.4rem;
-    margin: 0;
-  }
-
-  .help {
-    margin-left: 0.2rem;
-    margin-right: 0.5rem;
+    margin: 0 0.5rem 0 0;
   }
 
   .numPuzzlesFound {

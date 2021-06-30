@@ -53,22 +53,19 @@
 }
 
 .error {
-  animation: shake 0.2s ease-in-out 0s 2;
+  animation: pop 300ms ease-in-out 0s 1;
   box-shadow: 0 0 0.4em #fd2a2a;
 }
 
-@keyframes shake {
+@keyframes pop {
   0% {
-    margin-left: 0rem;
-  }
-  25% {
-    margin-left: 0.5rem;
-  }
-  75% {
-    margin-left: -0.5rem;
+    transform: scale(1.1);
+    visibility: hidden;
+    opacity: 0;
   }
   100% {
-    margin-left: 0rem;
+    visibility: visible;
+    opacity: 1;
   }
 }
 
