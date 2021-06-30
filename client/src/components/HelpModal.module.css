@@ -1,7 +1,15 @@
+.help {
+  display: flex;
+  flex-flow: column;
+}
 .moving {
   font-size: 0.75rem;
 }
 
 .square {
   font-weight: 700;
+}
+
+.github {
+  margin-top: 1rem;
 }

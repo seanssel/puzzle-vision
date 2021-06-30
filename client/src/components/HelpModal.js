@@ -15,6 +15,14 @@ const HelpModal = ({ modalRef }) => {
           destionation square, e.g.&nbsp;
           <span className={styles.square}>a1Q</span> (Knight&nbsp;=&nbsp;'N').
         </div>
+        <a
+          className={styles.github}
+          href="https://github.com/seanssel/puzzle-vision"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <h1>GitHub</h1>
+        </a>
       </div>
     </MenuModal>
   );
