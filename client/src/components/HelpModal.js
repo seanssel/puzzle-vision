@@ -7,13 +7,14 @@ const HelpModal = ({ modalRef }) => {
       <div className={styles.help}>
         <div className={styles.moving}>
           <h1>Moving</h1>
-          Input the destination square, e.g.{' '}
-          <span className={styles.square}>d4</span>
-          .
-          <br />
+          To initiate a move, click on the square coordinate text (next to the
+          piece icons) for the piece you want to move. Input the destination
+          square, e.g. <span className={styles.square}>d4</span>, and submit.
+          <br /> <br />
           To promote, include the first letter of the desired piece after the
-          destionation square, e.g.&nbsp;
-          <span className={styles.square}>a1Q</span> (Knight&nbsp;=&nbsp;'N').
+          destination coordinate, e.g.&nbsp;
+          <span className={styles.square}>a1Q</span> will move to a1 and promote
+          to to Queen. (Knight&nbsp;=&nbsp;'N').
         </div>
         <a
           className={styles.github}

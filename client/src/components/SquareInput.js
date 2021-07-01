@@ -23,9 +23,9 @@ const SquareInput = ({ square, makeMove, inputRef, error }) => {
         </form>
       ) : (
         <div className={styles.info}>
-          Click a square to move
+          Click a coordinate to move
           <div className={styles.help}>
-            See the help icon at the top of the screen for instructions
+            See the help icon at the top of the screen for instructions.
           </div>
         </div>
       )}
