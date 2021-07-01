@@ -241,7 +241,12 @@ const Puzzle = React.memo(
                 className={`${styles.san} ${
                   index === currMoveIndex && styles.currMove
                 }`}
-                onClick={() => setCurrMoveIndex(() => index)}
+                onClick={() => {
+                  if (index >= currMoveIndex) {
+                    setGoBack(false);
+                  }
+                  setCurrMoveIndex(() => index);
+                }}
               >
                 {move.san}
                 {index % 2 ? <IconSolved className={styles.moveSolved} /> : ''}
