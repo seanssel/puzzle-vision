@@ -29,13 +29,13 @@ const Puzzle = React.memo(
 
     const moveLimit = solution.length - 1;
 
-    const fenStart = goBack
-      ? solution[currMoveIndex + 1].fenEnd
-      : solution[currMoveIndex].fenStart;
+    let fenStart = solution[currMoveIndex].fenStart;
+    let fenEnd = solution[currMoveIndex].fenEnd;
 
-    const fenEnd = goBack
-      ? solution[currMoveIndex + 1].fenStart
-      : solution[currMoveIndex].fenEnd;
+    if (goBack && currMoveIndex !== moveLimit) {
+      fenStart = solution[currMoveIndex + 1].fenEnd;
+      fenEnd = solution[currMoveIndex + 1].fenStart;
+    }
 
     const position = getFenPosition(fenEnd);
     const biasWhiteStyle =
