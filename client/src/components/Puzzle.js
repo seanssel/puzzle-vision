@@ -160,7 +160,7 @@ const Puzzle = React.memo(
       <div className={styles.puzzle}>
         <div className={styles.navButtons}>
           <Button clickAction={toggleBoard}>
-            {boardVisible ? 'Hide ' : 'Show '} Board
+            {`${boardVisible ? 'Hide' : 'Show'} Board`}
           </Button>
           <Button clickAction={handleNextPuzzle}>Next Puzzle &raquo;</Button>
         </div>
@@ -173,6 +173,7 @@ const Puzzle = React.memo(
             className={styles.moveButton}
             clickAction={handleBackMove}
             ref={moveBackBtn}
+            description="Previous Move"
           >
             <IconPrev className={styles.moveIcon} />
           </Button>
@@ -180,6 +181,7 @@ const Puzzle = React.memo(
             className={styles.moveButton}
             clickAction={handleNextMove}
             ref={moveNextBtn}
+            description="Next Move"
           >
             <IconNext className={styles.moveIcon} />
           </Button>

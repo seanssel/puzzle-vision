@@ -28,12 +28,14 @@ const Menu = ({ updateConfig, numPuzzlesFound }) => {
           className={`${styles.icon} ${styles.item} ${styles.settings} ${
             isSettingsVisible && styles.open
           }`}
+          aria-label={'Puzzle Settings'}
         />
         <HelpIcon
           onClick={() => setIsHelpVisible(!isHelpVisible)}
           className={`${styles.icon} ${styles.item} ${styles.help} ${
             isHelpVisible && styles.open
           }`}
+          aria-label={'Help'}
         />
         {isSettingsVisible && (
           <SettingsModal
