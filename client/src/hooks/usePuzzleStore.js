@@ -28,7 +28,7 @@ export const usePuzzleStore = (config, setError, setLoading) => {
           .then((res) => {
             puzzles = res.data.results;
             store.saveNumPuzzles(res.data.count);
-            setNumPuzzlesFound(res.data.count);
+            setNumPuzzlesFound(() => res.data.count);
             if (puzzles && puzzles.length) {
               active = puzzles.pop();
               store.saveActivePuzzle(active);

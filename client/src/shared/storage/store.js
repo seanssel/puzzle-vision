@@ -38,12 +38,24 @@ const store = {
   getHistory: () => getStore(KEY_PUZZLE_HISTORY),
   getActivePuzzle: () => getStore(KEY_ACTIVE_PUZZLE),
   getNumPuzzles: () => getStore(KEY_NUM_PUZZLES),
-
   getConfig: () => {
-    if (!store.hasConfig()) {
-      store.saveConfig(PUZZLE_CONFIG);
+    if (store.hasConfig()) {
+      const parsed = getStore(KEY_CONFIG);
+
+      if (parsed) {
+        const parsedKeys = Object.keys(parsed);
+        const defaultKeys = Object.keys(PUZZLE_CONFIG);
+
+        if (
+          parsedKeys.length === defaultKeys.length &&
+          JSON.stringify(parsedKeys) === JSON.stringify(defaultKeys)
+        ) {
+          return parsed;
+        }
+      }
     }
-    return getStore(KEY_CONFIG);
+    store.saveConfig(PUZZLE_CONFIG);
+    return PUZZLE_CONFIG;
   },
   removePuzzles: () => removeStore(KEY_PUZZLES),
   removeActivePuzzle: () => removeStore(KEY_ACTIVE_PUZZLE),

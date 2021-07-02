@@ -1,22 +1,21 @@
 import { useState, useEffect } from 'react';
-import { PUZZLE_CONFIG } from '../shared/config/defaults';
 import store from '../shared/storage/store';
 
 export const usePuzzleConfig = () => {
-  const [config, setConfig] = useState(PUZZLE_CONFIG);
+  const [config, setConfig] = useState(store.getConfig());
 
-  const updateConfig = (piecesRange, movesRange, matesOnly) => {
+  const updateConfig = (piecesRange, movesRange, ratingRange, matesOnly) => {
     store.removePuzzles();
     setConfig({
       piecesRange: piecesRange,
       movesRange: movesRange,
+      ratingRange: ratingRange,
       matesOnly: matesOnly,
     });
   };
 
   useEffect(() => {
-    const parsed = store.getConfig() || PUZZLE_CONFIG;
-    setConfig(parsed);
+    setConfig(() => store.getConfig());
   }, []);
 
   useEffect(() => {
