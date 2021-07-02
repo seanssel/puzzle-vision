@@ -6,10 +6,10 @@ const HelpModal = ({ modalRef }) => {
     <MenuModal modalRef={modalRef}>
       <div className={styles.help}>
         <div className={styles.moving}>
-          <h1>Moving</h1>
-          To initiate a move, click on the square coordinate text (next to the
-          piece icons) for the piece you want to move. Input the destination
-          square, e.g. <span className={styles.square}>d4</span>, and submit.
+          <h1 className={styles.header}>Moving</h1>
+          Click on the coordinate text next to a piece to start your move. Input
+          the destination square, e.g. <span className={styles.square}>d4</span>
+          , and submit.
           <br /> <br />
           To promote, include the first letter of the desired piece after the
           destination coordinate, e.g.&nbsp;
@@ -22,7 +22,7 @@ const HelpModal = ({ modalRef }) => {
           target="_blank"
           rel="noreferrer"
         >
-          <h1>GitHub</h1>
+          <h1 className={styles.header}>GitHub</h1>
         </a>
       </div>
     </MenuModal>

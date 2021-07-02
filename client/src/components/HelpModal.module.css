@@ -1,7 +1,14 @@
 .help {
   display: flex;
   flex-flow: column;
+  margin: 0.2rem;
 }
+
+.header {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
 .moving {
   font-size: 0.75rem;
 }
