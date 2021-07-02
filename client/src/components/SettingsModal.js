@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { PIECES_LIMIT, MOVES_LIMIT } from '../shared/config/defaults';
 import store from '../shared/storage/store';
 import MenuModal from './MenuModal';
 import SettingsInput from './SettingsInput';
@@ -10,6 +9,7 @@ const SettingsModal = ({ updateConfig, modalRef, setModalVisible }) => {
 
   const [piecesRange, setPiecesRange] = useState(config.piecesRange);
   const [movesRange, setMovesRange] = useState(config.movesRange);
+  const [ratingRange, setRatingRange] = useState(config.ratingRange);
   const [matesOnly, setMatesOnly] = useState(config.matesOnly);
 
   const updatePiecesRange = (key) => (e) => {
@@ -20,6 +20,10 @@ const SettingsModal = ({ updateConfig, modalRef, setModalVisible }) => {
     setMovesRange({ ...movesRange, [key]: e.target.value });
   };
 
+  const updateRatingRange = (key) => (e) => {
+    setRatingRange({ ...ratingRange, [key]: e.target.value });
+  };
+
   const updateMatesOnly = (e) => {
     setMatesOnly(e.target.checked);
   };
@@ -27,19 +31,18 @@ const SettingsModal = ({ updateConfig, modalRef, setModalVisible }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setModalVisible(false);
-    updateConfig(piecesRange, movesRange, matesOnly);
+    updateConfig(piecesRange, movesRange, ratingRange, matesOnly);
   };
 
   return (
     <MenuModal modalRef={modalRef}>
       <form className={styles.settings} onSubmit={handleSubmit}>
-        <h1>Total Pieces:</h1>
+        <h1 className={styles.header}>Total Pieces:</h1>
         <SettingsInput
           type="number"
           name="piecesMin"
           value={piecesRange.min}
           onChange={updatePiecesRange('min')}
-          limit={PIECES_LIMIT}
         >
           min
         </SettingsInput>
@@ -48,17 +51,16 @@ const SettingsModal = ({ updateConfig, modalRef, setModalVisible }) => {
           name="piecesMax"
           value={piecesRange.max}
           onChange={updatePiecesRange('max')}
-          limit={PIECES_LIMIT}
         >
           max
         </SettingsInput>
-        <h1>Player Moves:</h1>
+
+        <h1 className={styles.header}>Player Moves:</h1>
         <SettingsInput
           type="number"
           name="movesMin"
           value={movesRange.min}
           onChange={updateMovesRange('min')}
-          limit={MOVES_LIMIT}
         >
           min
         </SettingsInput>
@@ -67,18 +69,37 @@ const SettingsModal = ({ updateConfig, modalRef, setModalVisible }) => {
           name="movesMax"
           value={movesRange.max}
           onChange={updateMovesRange('max')}
-          limit={MOVES_LIMIT}
         >
           max
         </SettingsInput>
+
+        <h1 className={styles.header}>Puzzle Rating:</h1>
+        <SettingsInput
+          type="number"
+          name="ratingMin"
+          value={ratingRange.min}
+          onChange={updateRatingRange('min')}
+        >
+          min
+        </SettingsInput>
+        <SettingsInput
+          type="number"
+          name="ratingMax"
+          value={ratingRange.max}
+          onChange={updateRatingRange('max')}
+        >
+          max
+        </SettingsInput>
+
         <SettingsInput
           type="checkbox"
           name="matesOnly"
           value={matesOnly}
           onChange={updateMatesOnly}
         >
-          <h1 className={`${styles.info} ${styles.mates}`}>Mates Only:</h1>
+          <h1 className={`${styles.header} ${styles.mates}`}>Mates Only:</h1>
         </SettingsInput>
+
         <input className={styles.submit} type="submit" value="Filter Puzzles" />
       </form>
     </MenuModal>

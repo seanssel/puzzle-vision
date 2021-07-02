@@ -1,6 +1,6 @@
 import styles from './SettingsInput.module.css';
 
-const SettingsInput = ({ type, name, value, onChange, limit, children }) => {
+const SettingsInput = ({ type, name, value, onChange, children }) => {
   return (
     <div className={styles.main}>
       <label className={styles.label}>
@@ -12,8 +12,6 @@ const SettingsInput = ({ type, name, value, onChange, limit, children }) => {
           value={value}
           checked={type === 'checkbox' ? value : null}
           onChange={onChange}
-          min={limit && limit.min}
-          max={limit && limit.max}
           required={type !== 'checkbox'}
           onFocus={(e) => e.currentTarget.select()}
         />

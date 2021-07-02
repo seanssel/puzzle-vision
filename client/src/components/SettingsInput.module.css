@@ -7,8 +7,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-size: 0.85rem;
-  padding: 0.2rem;
+  font-size: 0.85em;
+  padding: 0.2em;
 }
 
 .input:focus {
@@ -16,24 +16,24 @@
 }
 
 .input[type='checkbox'] {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2.5em;
+  height: 2.5em;
   margin-right: 15%;
   cursor: pointer;
 }
 
 .input[type='number'] {
   -moz-appearance: textfield;
-  width: 3rem;
-  height: 1.2rem;
+  width: 3em;
+  height: 1.2em;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9em;
   font-weight: 700;
   background: transparent;
   color: var(--nav-primary);
   border: none;
   border-bottom: 1px solid var(--nav-secondary);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.8em;
 }
 
 .input[type='number']::-webkit-inner-spin-button,

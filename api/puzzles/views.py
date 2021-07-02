@@ -12,6 +12,7 @@ class PuzzleFilter(FilterSet):
         fields = {
             'nbpieces': ['exact', 'range'],
             'nbmoves': ['exact', 'range'],
+            'rating': ['exact', 'range'],
             'themes': ['icontains']
         }
 

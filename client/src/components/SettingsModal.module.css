@@ -1,32 +1,27 @@
 .settings {
   display: flex;
   flex-flow: column wrap;
-}
-
-.info {
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 0.2rem;
+  font-size: 0.9rem;
   margin: 0.2rem;
 }
 
+.header {
+  font-size: 0.9em;
+  font-weight: 700;
+  margin-top: 0.2em;
+}
+
 .mates {
+  font-size: 1em;
+  font-weight: 700;
   flex-basis: 100%;
-  padding: 0;
 }
 
 .submit {
   composes: button from './Button.module.css';
   background-color: var(--button-filter);
-  margin-top: 1rem;
 }
 
 .submit:hover {
   background-color: var(--button-filter-hover);
 }
-
-/* @media screen and (max-width: 600px) {
-  .settings {
-    flex-flow: row wrap;
-  }
-} */

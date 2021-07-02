@@ -5,6 +5,7 @@ import {
   API_QUERY_RANDOM,
   API_QUERY_PIECES_RANGE,
   API_QUERY_MOVES_RANGE,
+  API_QUERY_RATING_RANGE,
   API_QUERY_THEME,
 } from './constants';
 
@@ -26,9 +27,11 @@ export const fetchPuzzles = (config, limit) => {
     min: 2 * config.movesRange.min - 1,
     max: 2 * config.movesRange.max - 1,
   };
+
   const filters = {
     [API_QUERY_PIECES_RANGE]: Object.values(config.piecesRange),
     [API_QUERY_MOVES_RANGE]: Object.values(movesRange),
+    [API_QUERY_RATING_RANGE]: Object.values(config.ratingRange),
   };
 
   if (config.matesOnly) {
