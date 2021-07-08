@@ -41,6 +41,22 @@ const Puzzle = React.memo(
     const biasWhiteStyle =
       position.board.pieces('white', 'pawn').size() > 3 ? styles.biasWhite : '';
 
+    const lichessLinks = (
+      <>
+        <a
+          href={`https://lichess.org/training/${puzzle.puzzleid}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Puzzle
+        </a>
+        {' - '}
+        <a href={puzzle.gameurl} target="_blank" rel="noreferrer">
+          Game
+        </a>
+      </>
+    );
+
     useEffect(() => {
       const handleArrowKeys = (e) => {
         if (e.key === 'ArrowLeft') {
@@ -216,19 +232,21 @@ const Puzzle = React.memo(
                 lastMove={solution[currMoveIndex].lastMove}
                 orientation={orientation}
               />
-              <a
-                className={styles.gameUrl}
-                href={puzzle.gameurl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {puzzle.gameurl}
-              </a>
+              <div className={styles.boardLinks}>{lichessLinks}</div>
             </div>
           ) : (
             <div className={styles.solution}>
               {solved ? (
-                <IconSolved className={styles.puzzleSolved} />
+                <>
+                  <IconSolved className={styles.iconSolved} />
+                  <ul className={styles.solutionInfo}>
+                    <li>
+                      Rating:{' '}
+                      <span className={styles.rating}>{puzzle.rating}</span>
+                    </li>
+                    <li>{lichessLinks}</li>
+                  </ul>
+                </>
               ) : isOpponentMoving.current ? (
                 <span className={styles.loader} />
               ) : (

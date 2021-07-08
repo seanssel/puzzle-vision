@@ -127,6 +127,19 @@
   text-align: center;
   margin-top: 2rem;
   padding: 1rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.solutionInfo {
+  padding-right: 2rem;
+  list-style: none;
+  animation: fade-in 300ms linear;
+}
+
+.solutionInfo li {
+  padding: 0.1em;
 }
 
 .board {
@@ -139,22 +152,26 @@
   animation: fade-in 120ms linear;
 }
 
-.puzzleSolved {
-  width: 3rem;
-  height: 3rem;
+.boardLinks {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 0.7rem;
+  animation: fade-in 120ms linear;
+}
+
+.iconSolved {
+  width: 4rem;
+  height: 4rem;
   stroke: var(--solved-icon);
   animation: jello-diagonal 0.8s both;
 }
 
-.notationLink {
-  color: var(--link-primary);
+.rating {
+  font-weight: 700;
 }
 
-.gameUrl {
-  font-size: 0.75rem;
-  text-align: center;
-  margin-top: 0.7rem;
-  animation: fade-in 120ms linear;
+.notationLink {
+  color: var(--link-primary);
 }
 
 .moveIcon {
