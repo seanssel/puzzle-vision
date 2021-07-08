@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { getFenPosition } from '../shared/chess/util';
-import { makeUci } from 'chessops/util';
+import { makeUci, parseUci } from 'chessops/util';
 import { ReactComponent as IconPrev } from '../assets/icons/arrow-left.svg';
 import { ReactComponent as IconNext } from '../assets/icons/arrow-right.svg';
 import { ReactComponent as IconSolved } from '../assets/icons/check.svg';
@@ -14,7 +14,7 @@ const ERROR_TIMEOUT = 1000;
 const OPPONENT_MOVE_TIMEOUT = 500;
 
 const Puzzle = React.memo(
-  ({ puzzle, solution, orientation, getNextPuzzle }) => {
+  ({ puzzle, setPuzzle, solution, orientation, getNextPuzzle }) => {
     const [currMoveIndex, setCurrMoveIndex] = useState(0);
     const [highMoveIndex, setHighMoveIndex] = useState(0);
     const [boardVisible, setBoardVisible] = useState(false);
@@ -72,15 +72,15 @@ const Puzzle = React.memo(
       isOpponentMoving.current = false;
     };
 
-    const incCurrMove = () => {
+    const incCurrMoveIndex = () => {
       setCurrMoveIndex((prevMove) => prevMove + 1);
     };
 
-    const decCurrMove = () => {
+    const decCurrMoveIndex = () => {
       setCurrMoveIndex((prevMove) => prevMove - 1);
     };
 
-    const incHighMove = () => {
+    const incHighMoveIndex = () => {
       setHighMoveIndex((prevHigh) => prevHigh + 1);
     };
 
@@ -103,30 +103,44 @@ const Puzzle = React.memo(
         isOpponentMoving.current = true;
         setTimeout(() => {
           isOpponentMoving.current = false;
-          incHighMove();
-          incCurrMove();
+          incHighMoveIndex();
+          incCurrMoveIndex();
         }, OPPONENT_MOVE_TIMEOUT);
       }
     };
 
-    // TODO easier promotion selection
-    // currently you have to input the uci form
+    const handleMoveSuccess = (moveIndex) => {
+      incHighMoveIndex();
+      setCurrMoveIndex(() => moveIndex);
+
+      if (moveIndex === moveLimit) {
+        setSolved(true);
+      } else {
+        setFromSquare();
+        handleOpponentMove();
+      }
+    };
+
     const makeMove = (toSquare) => {
       let moveError = true;
       const nextIndex = highMoveIndex + 1;
-      if (toSquare && !solved) {
-        const nextUci = makeUci(solution[nextIndex].lastMove).toLowerCase();
-        const guessUci = fromSquare + toSquare.toLowerCase();
+      const nextUci = makeUci(solution[nextIndex].lastMove).toLowerCase();
+      const guessUci = fromSquare + toSquare.toLowerCase();
+      const move = parseUci(guessUci);
+
+      if (move && !solved) {
         if (guessUci === nextUci) {
           moveError = false;
-          incHighMove();
-          setCurrMoveIndex(() => nextIndex);
-
-          if (nextIndex === moveLimit) {
-            setSolved(true);
-          } else {
-            setFromSquare();
-            handleOpponentMove();
+          handleMoveSuccess(nextIndex);
+        } else if (nextIndex === moveLimit && position.isLegal(move)) {
+          // if uci doesn't match, test for checkmate
+          position.play(move);
+          if (position.isCheckmate()) {
+            let newMoves = puzzle.moves.split(' ');
+            newMoves.pop();
+            newMoves.push(guessUci);
+            setPuzzle((prev) => ({ ...prev, moves: newMoves.join(' ') }));
+            handleMoveSuccess(nextIndex);
           }
         }
       }
@@ -136,14 +150,14 @@ const Puzzle = React.memo(
     const handleBackMove = () => {
       if (currMoveIndex > 0) {
         setGoBack(true);
-        decCurrMove();
+        decCurrMoveIndex();
       }
     };
 
     const handleNextMove = () => {
       if ((currMoveIndex < moveLimit) & (currMoveIndex < highMoveIndex)) {
         setGoBack(false);
-        incCurrMove();
+        incCurrMoveIndex();
       }
     };
 

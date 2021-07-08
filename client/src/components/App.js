@@ -12,7 +12,7 @@ function App() {
   const [config, updateConfig] = usePuzzleConfig();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const [puzzle, getNextPuzzle, numPuzzlesFound] = usePuzzleStore(
+  const [puzzle, setPuzzle, getNextPuzzle, numPuzzlesFound] = usePuzzleStore(
     config,
     setError,
     setLoading,
@@ -45,6 +45,7 @@ function App() {
     ) : (
       <Puzzle
         puzzle={puzzle}
+        setPuzzle={setPuzzle}
         solution={solution}
         orientation={orientation}
         getNextPuzzle={getNextPuzzle}

@@ -61,5 +61,5 @@ export const usePuzzleStore = (config, setError, setLoading) => {
     // };
   }, [updatePuzzleStore]);
 
-  return [puzzle, getNextPuzzle, numPuzzlesFound];
+  return [puzzle, setPuzzle, getNextPuzzle, numPuzzlesFound];
 };
