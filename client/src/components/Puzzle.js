@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { getFenPosition } from '../shared/chess/util';
 import { makeUci, parseUci } from 'chessops/util';
 import { ReactComponent as IconPrev } from '../assets/icons/arrow-left.svg';
@@ -23,8 +23,6 @@ const Puzzle = React.memo(
     const [fromSquare, setFromSquare] = useState();
     const [solved, setSolved] = useState(false);
     const isOpponentMoving = useRef(false);
-    const moveBackBtn = useRef();
-    const moveNextBtn = useRef();
     const moveInput = useRef();
 
     const moveLimit = solution.length - 1;
@@ -57,16 +55,30 @@ const Puzzle = React.memo(
       </>
     );
 
+    const handleBackMove = useCallback(() => {
+      if (currMoveIndex > 0) {
+        setGoBack(true);
+        decCurrMoveIndex();
+      }
+    }, [currMoveIndex]);
+
+    const handleNextMove = useCallback(() => {
+      if ((currMoveIndex < moveLimit) & (currMoveIndex < highMoveIndex)) {
+        setGoBack(false);
+        incCurrMoveIndex();
+      }
+    }, [currMoveIndex, highMoveIndex, moveLimit]);
+
     useEffect(() => {
       const handleArrowKeys = (e) => {
         if (e.key === 'ArrowLeft') {
           e.preventDefault();
-          moveBackBtn.current.click();
+          handleBackMove();
         }
 
         if (e.key === 'ArrowRight') {
           e.preventDefault();
-          moveNextBtn.current.click();
+          handleNextMove();
         }
       };
 
@@ -74,7 +86,7 @@ const Puzzle = React.memo(
       return () => {
         window.removeEventListener('keydown', handleArrowKeys);
       };
-    }, []);
+    }, [handleBackMove, handleNextMove]);
 
     const handleNextPuzzle = () => {
       setBoardVisible(false);
@@ -163,20 +175,6 @@ const Puzzle = React.memo(
       handleMoveError(moveError);
     };
 
-    const handleBackMove = () => {
-      if (currMoveIndex > 0) {
-        setGoBack(true);
-        decCurrMoveIndex();
-      }
-    };
-
-    const handleNextMove = () => {
-      if ((currMoveIndex < moveLimit) & (currMoveIndex < highMoveIndex)) {
-        setGoBack(false);
-        incCurrMoveIndex();
-      }
-    };
-
     const selectSquare = (square) => {
       setBoardVisible(false);
       setMoveError(false);
@@ -202,7 +200,6 @@ const Puzzle = React.memo(
           <Button
             className={styles.moveButton}
             clickAction={handleBackMove}
-            ref={moveBackBtn}
             description="Previous Move"
           >
             <IconPrev className={styles.moveIcon} />
@@ -210,7 +207,6 @@ const Puzzle = React.memo(
           <Button
             className={styles.moveButton}
             clickAction={handleNextMove}
-            ref={moveNextBtn}
             description="Next Move"
           >
             <IconNext className={styles.moveIcon} />
