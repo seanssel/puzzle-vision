@@ -3,3 +3,5 @@
 Improve your visualization skills by solving [lichess puzzles](https://database.lichess.org/#puzzles) without the board.
 
 Try it here: https://puzzle-vision.com
+
+<img src="https://i.imgur.com/BF6Mspe.gif" width="674" height="420"/>
