@@ -4,4 +4,4 @@ Improve your visualization skills by solving [lichess puzzles](https://database.
 
 Try it here: https://puzzle-vision.com
 
-<img src="https://i.imgur.com/BF6Mspe.gif" width="674" height="420"/>
+<img src="https://i.imgur.com/BF6Mspe.gif" width="70%" height="70%"/>
