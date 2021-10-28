@@ -1,4 +1,3 @@
-import React from 'react';
 import { ROLES } from 'chessops/types';
 import { makeSquare } from 'chessops/util';
 import Piece from './Piece';
@@ -20,12 +19,7 @@ const groupPieces = (board, squares) => {
   return group;
 };
 
-// Only regroup on re-render if squares have changed
-const compareBoard = (prev, next) => {
-  return prev.squares.equals(next.squares);
-};
-
-const PieceGroup = React.memo(({ board, squares, selectSquare }) => {
+const PieceGroup = ({ board, squares, selectSquare }) => {
   const group = groupPieces(board, squares);
 
   return Object.keys(group).map((role) =>
@@ -52,6 +46,6 @@ const PieceGroup = React.memo(({ board, squares, selectSquare }) => {
       );
     }),
   );
-}, compareBoard);
+};
 
 export default PieceGroup;

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Chessground } from 'chessground';
 import { CHESSGROUND_CONFIG } from '../shared/config/defaults';
 import { parseFen } from 'chessops/fen';
@@ -7,7 +7,7 @@ import { chessgroundMove } from 'chessops/compat';
 import '../assets/styles/chessground/base.css';
 import '../assets/styles/chessground/theme.css';
 
-const Board = React.memo(({ fenStart, fenEnd, lastMove, orientation }) => {
+const Board = ({ fenStart, fenEnd, lastMove, orientation }) => {
   const boardContainer = useRef();
 
   const setupStart = parseFen(fenStart).unwrap();
@@ -38,6 +38,6 @@ const Board = React.memo(({ fenStart, fenEnd, lastMove, orientation }) => {
   });
 
   return <div ref={boardContainer} />;
-});
+};
 
 export default Board;

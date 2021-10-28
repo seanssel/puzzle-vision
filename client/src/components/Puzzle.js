@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { getFenPosition } from '../shared/chess/util';
 import { makeUci, parseUci } from 'chessops/util';
 import { ReactComponent as IconPrev } from '../assets/icons/arrow-left.svg';
@@ -13,8 +13,7 @@ import styles from './Puzzle.module.css';
 const ERROR_TIMEOUT = 1000;
 const OPPONENT_MOVE_TIMEOUT = 500;
 
-const Puzzle = React.memo(
-  ({ puzzle, setPuzzle, solution, orientation, getNextPuzzle }) => {
+const Puzzle = ({ puzzle, setPuzzle, solution, orientation, getNextPuzzle }) => {
     const [currMoveIndex, setCurrMoveIndex] = useState(0);
     const [highMoveIndex, setHighMoveIndex] = useState(0);
     const [boardVisible, setBoardVisible] = useState(false);
@@ -286,7 +285,6 @@ const Puzzle = React.memo(
         </ol>
       </div>
     );
-  },
-);
+  };
 
 export default Puzzle;
